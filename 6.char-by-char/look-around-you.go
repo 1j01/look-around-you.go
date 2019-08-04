@@ -5,6 +5,9 @@ import (
 	"time"
 )
 
+// Uppercase functions, types, and constants are public (exported)
+// lowercase is private
+
 func typeOutLine(line string, charDelay time.Duration) {
 	for _, c := range line {
 		fmt.Printf(string(c))
@@ -27,7 +30,11 @@ func main() {
 		"20 GOTO 10",
 		"RUN",
 	}
-	// typeOutLines(codeLines, 0.05*time.Second, 0.5*time.Second) doesn't work because Duration is int based so it would lose precision
+	// typeOutLines(codeLines, 0.05*time.Second, 0.5*time.Second)
+	// "[go] constant 0.05 truncated to integer"
+	// it doesn't work because Duration is int based so it would lose precision
+	// (an insignificant amount concidering it's stored as nanoseconds)
+	// we can convince it we don't care by admitting we're converting between types
 	typeOutLines(
 		codeLines,
 		time.Duration(0.05*float64(time.Second)),
