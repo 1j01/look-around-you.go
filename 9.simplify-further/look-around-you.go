@@ -5,12 +5,12 @@ import (
 	"time"
 )
 
-const {
-	charDelay = time.Duration(0.1*float64(time.Second))
+const (
+	charDelay          = time.Duration(0.1 * float64(time.Second))
 	beforeNewLineDelay = time.Duration(0.5 * float64(time.Second))
-	betweenLinesDelay = time.Duration(0.8 * float64(time.Second))
-	afterRUNDelay = time.Duration(0.1 * float64(time.Second))
-}
+	betweenLinesDelay  = time.Duration(0.8 * float64(time.Second))
+	afterRUNDelay      = time.Duration(0.1 * float64(time.Second))
+)
 
 func main() {
 	message := "LOOK AROUND YOU! "
@@ -33,7 +33,7 @@ func main() {
 			time.Sleep(betweenLinesDelay)
 		} else {
 			// after "RUN"
-			time.Sleep()
+			time.Sleep(afterRUNDelay)
 		}
 	}
 
