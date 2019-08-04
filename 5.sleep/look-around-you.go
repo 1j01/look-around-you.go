@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"time"
+)
 
 func main() {
 	message := "LOOK AROUND YOU! "
@@ -11,6 +14,7 @@ func main() {
 	}
 	for _, codeLine := range codeLines {
 		fmt.Printf(codeLine + "\n")
+		time.Sleep(1 * time.Second)
 	}
 	for {
 		fmt.Printf(message)
