@@ -46,7 +46,7 @@ BASIC
 >`
 	spamMessage := "LOOK AROUND YOU "
 	codeLines := []string{
-		"10 PRINT \"" + spamMessage + "\"",
+		"10 PRINT \"" + spamMessage + "\";",
 		"20 GOTO 10",
 		"RUN",
 	}
