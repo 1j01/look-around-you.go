@@ -3,6 +3,16 @@
 Learning [Go](https://golang.org).  
 I thought I'd make a bit of a learning resource of it as I go.
 
+The repo contains snapshots of a single program as I worked on it,
+learning about Go as I go,
+sometimes with comments that are removed in the next version.
+
+I started with "Hello world!" and then learned about simple loops, etc.
+
+The end result is not much more complicated than "Hello world!"
+(it's maybe in the same tier, still fairly trivial),
+but it's a bit more animated, and achieving a specific effect.
+
 ## Getting Started
 
 First you have to [download and install Go](https://golang.org/doc/install).
@@ -15,10 +25,15 @@ I'm not sure how this plays out for a project where you want Go for parts of it 
 You can clone this repo into the `src` of your Go workspace.  
 
 Next, building and running programs:  
-`go build`, `go install`, and `go run` will all compile your program.  
+
+`go build`, `go install`, and `go run` will all compile your program.
+
 `go run` is the simplest to use because you just pass it a `.go` file and it'll compile and run it.  
-And then you can hit up+enter in your terminal to rerun it.  
-[Here's an explanation of `go build` and `go install`](https://stackoverflow.com/a/30612612/2624876)
+And then you can hit up+enter in your terminal to rerun it.
+
+[Here's an explanation of `go build` and `go install`](https://stackoverflow.com/a/30612612/2624876).  
+To feel the power of native code (if coming from a JavaScript background), you've got to build an executable.  
+Go makes this pretty painless, once you've got the workspace stuff sorted out.
 
 ## Editor Setup
 
