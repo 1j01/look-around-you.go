@@ -12,6 +12,7 @@ Rather, you're expected to create a single workspace, with a `src` folder,
 with *repositories within the `src` folder.*  
 I'm not sure how this plays out for a project where you want Go for parts of it and not for others.
 
+You can clone this repo into the `src` of your Go workspace.  
 
 Next, building and running programs:  
 `go build`, `go install`, and `go run` will all compile your program.  
@@ -40,4 +41,7 @@ It creates a folder `.history` in your project folder. You should add this to yo
 
 # The Program
 
-be sure to kill the program promptly haha as it may kill your terminal and crash VS Code or whatever
+It's an emulation/recreation of the terminal output of the [Look Around You intro](https://youtu.be/FBaVwwuErmU?t=56),
+including typing out the commands letter by letter.
+
+If running in the VS Code terminal, be sure to kill the program promptly haha as it may crash VS Code.
