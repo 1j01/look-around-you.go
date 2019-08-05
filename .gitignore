@@ -1,3 +1,8 @@
+# from Local History plugin for VS Code
+# should really be globally ignored
+# but included here for convenience as mentioned on the readme
+.history/
+
 # =========================
 # Operating System Files
 # =========================

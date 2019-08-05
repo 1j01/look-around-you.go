@@ -27,15 +27,16 @@ Hit Install All when it pops up with a notification - this installs some helper 
 It formats automatically, and gives you syntax error highlighting inline, triggered when you save.
 [More info about the plugin](https://code.visualstudio.com/docs/languages/go)
 
-btw, note that autoformatting may be insidious in an editor that doesn't support nonlinear undo history,  
-or at least multiple levels of history, i.e. one that's totally time-based (often a totally separate feature)  
-(or if you don't know about these options)  
-I don't know about any option like this in VS Code  
-so I'm liable to lose--  
-there's probably a plugin, I bet there's a plugin  
-to patch on some editing history data safety  
---to lose any history if I undo and then save (particularly implicitly, with autosave) and it formats, changing the editor contents,  
-and erasing all redos, as is the common practice, the status quo.
+Especially with autoformatting, and especially in combination with autosave,
+and given that there's no nonlinear undo history and redos are deleted implicitly upon any changes (as is the status quo)
+but just in general,  
+DEFINITELY install a plugin to provide local history for files as you edit them,
+because the VS Code doesn't provide that built in, and neither does Git.
+There's [Local History](https://marketplace.visualstudio.com/items?itemName=xyz.local-history)
+and [Checkpoints](https://marketplace.visualstudio.com/items?itemName=micnil.vscode-checkpoints).
+
+So far I've tried Local History so idk which is better.  
+It creates a folder `.history` in your project folder. You should add this to your global `.gitignore` (but for convenience, it's included in the local `.gitignore` for this repo)
 
 # The Program
 
