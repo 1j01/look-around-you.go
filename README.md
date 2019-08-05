@@ -1,10 +1,10 @@
 # Look Around You: Go
 
-Learning [Go](https://golang.org).  
+Learning [Golang](https://golang.org).  
 I thought I'd make a bit of a learning resource of it as I go.
 
 The repo contains snapshots of a single program as I worked on it,
-learning about Go as I go,
+learning about Go features along the way,
 sometimes with comments that are removed in the next version.
 
 I started with "Hello world!" and then learned about simple loops, etc.
