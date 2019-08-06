@@ -68,10 +68,11 @@ Executables were built (cross-compiled!) en-masse with a tool called [gox](https
 ```bash
 go get github.com/mitchellh/gox
 
-cd 1.*/
+cd 01.*/
 for i in 1 2 3 4 5 6 7 8 9 10 11
 do
-cd ../$i.*/
+dirname_num_prefix=`printf %02d $i` # pad with 0
+cd ../$dirname_num_prefix.*/
 gox -osarch="linux/386 linux/arm linux/s390x linux/mips linux/mipsle darwin/386 freebsd/386 openbsd/386 windows/386 freebsd/arm netbsd/386 netbsd/arm" -output="look-around-you-v$i-{{if eq .OS \"darwin\"}}macOS{{else if eq .OS \"windows\"}}Windows{{else if eq .OS \"linux\"}}Linux{{else if eq .OS \"freebsd\"}}FreeBSD{{else if eq .OS \"netbsd\"}}NetBSD{{else if eq .OS \"openbsd\"}}OpenBSD{{else if eq .OS \"dragonfly\"}}DragonFlyBSD{{else if eq .OS \"plan9\"}}Plan9{{else if eq .OS \"android\"}}Android{{else if eq .OS \"solaris\"}}Solaris{{else if eq .OS \"nacl\"}}NaCl{{else}}{{.OS}}{{end}}-{{if eq .Arch \"386\"}}x86{{else}}{{.Arch}}{{end}}"
 done
 ```
@@ -105,3 +106,4 @@ I also filtered out the ones that were not default enabled platforms.
 ## TODO
 
 - Clear the terminal efficiently: instead of starting a process (which is ridiculously slow for what it does, at least on Windows), use a package like `goterm` to clear the screen (this will involve learning about go package management)
+- Detect width of terminal and output text wrapped the same as in the reference video, so it lines up with YOU LOOK centered over AROUND over YOU LOOK (and so on, ad infinitum)
