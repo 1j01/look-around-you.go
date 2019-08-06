@@ -1,3 +1,17 @@
+# Executable binaries
+*-FreeBSD-arm
+*-FreeBSD-x86
+*-Linux-arm
+*-Linux-mips
+*-Linux-mipsle
+*-Linux-s390x
+*-Linux-x86
+*-macOS-x86
+*-NetBSD-arm
+*-NetBSD-x86
+*-OpenBSD-x86
+*-Windows-x86.exe
+
 # from Local History plugin for VS Code
 # should really be globally ignored
 # but included here for convenience as mentioned on the readme
