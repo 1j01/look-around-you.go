@@ -60,3 +60,46 @@ It's an emulation/recreation of the terminal output of the [Look Around You intr
 including typing out the commands letter by letter.
 
 If running in the VS Code terminal, be sure to kill the program promptly haha as it may crash VS Code.
+
+# Releases
+
+Download releases here: https://github.com/1j01/look-around-you.go/releases
+
+Executables were built (cross-compiled!) en-masse with a tool called [gox](https://github.com/mitchellh/gox), and the following bash script/commands:
+
+```bash
+go get github.com/mitchellh/gox
+
+cd 1.*/
+for i in 1 2 3 4 5 6 7 8 9 10 11
+do
+cd ../$i.*/
+gox -osarch="linux/386 linux/arm linux/s390x linux/mips linux/mipsle darwin/386 freebsd/386 openbsd/386 windows/386 freebsd/arm netbsd/386 netbsd/arm" -output="look-around-you-v$i-{{if eq .OS \"darwin\"}}macOS{{else if eq .OS \"windows\"}}Windows{{else if eq .OS \"linux\"}}Linux{{else if eq .OS \"freebsd\"}}FreeBSD{{else if eq .OS \"netbsd\"}}NetBSD{{else if eq .OS \"openbsd\"}}OpenBSD{{else if eq .OS \"dragonfly\"}}DragonFlyBSD{{else if eq .OS \"plan9\"}}Plan9{{else if eq .OS \"android\"}}Android{{else if eq .OS \"solaris\"}}Solaris{{else if eq .OS \"nacl\"}}NaCl{{else}}{{.OS}}{{end}}-{{if eq .Arch \"386\"}}x86{{else}}{{.Arch}}{{end}}"
+done
+```
+
+I gave nice names to all the operating systems listed in `gox -osarch-list`, in a complicated [go template](https://gohugo.io/templates/introduction/) which is what the tool supports for formatting.
+
+I considered generating the template using code, since it's really not a good language to author something like that...
+
+```go
+names := map[string]string{
+	"darwin":    "macOS",
+	"linux":     "Linux",
+	"windows":   "Windows",
+	"freebsd":   "FreeBSD",
+	"openbsd":   "OpenBSD",
+	"netbsd":    "NetBSD",
+	"dragonfly": "DragonFlyBSD",
+	"plan9":     "Plan9",
+	"android":   "Android",
+	"solaris":   "Solaris",
+	"nacl":      "NativeClient",
+}
+```
+
+but I decided it would be easier to just copy and paste and type it out, in that ridiculous blob of template text.
+
+As for what platforms to actually include, I took the `gox -osarch-list` and filtered out 64-bit builds,  
+since the program doesn't use hardly any memory at all, and 32-bit should still work on 64-bit operating systems.  
+I also filtered out the ones that were not default enabled platforms.  
