@@ -11,7 +11,7 @@ I started with "Hello world!" and then learned about simple loops, etc.
 
 The end result is not much more complicated than "Hello world!"
 (it's maybe in the same tier, still fairly trivial),
-but it's a bit more animated, and achieving a specific effect.
+but it's a bit more animated, and achieving a specific retro effect.
 
 ## Getting Started
 
@@ -23,6 +23,7 @@ with *repositories within the `src` folder.*
 I'm not sure how this plays out for a project where you want Go for parts of it and not for others.
 
 You can clone this repo into the `src` of your Go workspace.  
+`git clone https://github.com/1j01/look-around-you.go.git`
 
 Next, building and running programs:  
 
@@ -47,21 +48,18 @@ Especially with autoformatting, and especially in combination with autosave,
 and given that there's no nonlinear undo history and redos are deleted implicitly upon any changes (as is the status quo)
 but just in general,  
 DEFINITELY install a plugin to provide local history for files as you edit them,
-because the VS Code doesn't provide that built in, and neither does Git.
-There's [Local History](https://marketplace.visualstudio.com/items?itemName=xyz.local-history)
-and [Checkpoints](https://marketplace.visualstudio.com/items?itemName=micnil.vscode-checkpoints).
-
-So far I've tried Local History so idk which is better.  
+because the VS Code doesn't provide that built in, and neither does Git.  
+There's [Local History](https://marketplace.visualstudio.com/items?itemName=xyz.local-history).  
 It creates a folder `.history` in your project folder. You should add this to your global `.gitignore` (but for convenience, it's included in the local `.gitignore` for this repo)
 
-# The Program
+## The Program
 
 It's an emulation/recreation of the terminal output of the [Look Around You intro](https://youtu.be/FBaVwwuErmU?t=56),
 including typing out the commands letter by letter.
 
 If running in the VS Code terminal, be sure to kill the program promptly haha as it may crash VS Code.
 
-# Releases
+## Releases
 
 Download releases here: https://github.com/1j01/look-around-you.go/releases
 
@@ -78,7 +76,7 @@ gox -osarch="linux/386 linux/arm linux/s390x linux/mips linux/mipsle darwin/386 
 done
 ```
 
-I gave nice names to all the operating systems listed in `gox -osarch-list`, in a complicated [go template](https://gohugo.io/templates/introduction/) which is what the tool supports for formatting.
+I gave nice names to all the operating systems listed in `gox -osarch-list`, in a complicated [go template](https://gohugo.io/templates/introduction/) which is what the tool supports for formatting file names.
 
 I considered generating the template using code, since it's really not a good language to author something like that...
 
@@ -103,3 +101,7 @@ but I decided it would be easier to just copy and paste and type it out, in that
 As for what platforms to actually include, I took the `gox -osarch-list` and filtered out 64-bit builds,  
 since the program doesn't use hardly any memory at all, and 32-bit should still work on 64-bit operating systems.  
 I also filtered out the ones that were not default enabled platforms.  
+
+## TODO
+
+- Clear the terminal efficiently: instead of starting a process (which is ridiculously slow for what it does, at least on Windows), use a package like `goterm` to clear the screen (this will involve learning about go package management)
